@@ -33,7 +33,7 @@ class BorrowRecord:
         return self._return_date
 
     def mark_returned(self) -> None:
-        pass
+        self._return_date = datetime.now()
 
     def __str__(self) -> str:
         borrow_str = self._borrow_date.strftime("%Y-%m-%d")

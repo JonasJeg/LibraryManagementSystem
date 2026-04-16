@@ -9,6 +9,7 @@ class Book:
         self._genre = genre
         self._is_available = is_available
 
+    # Encapsulation via properties
     @property
     def book_id(self) -> int:
         return self._book_id
@@ -34,10 +35,15 @@ class Book:
         return self._is_available
 
     def borrow(self) -> bool:
-        pass
+        if self._is_available:
+            self._is_available = False
+            return True
+        return False
 
     def return_book(self) -> None:
-        pass
+        self._is_available = True
 
     def __str__(self) -> str:
-        pass
+        year_str = str(self._year) if self._year is not None else "Unknown"
+        status = "Available" if self._is_available else "Borrowed"
+        return f"[{self._book_id}] {self._title} by {self._author} ({year_str}) - {self._genre} - {status}"
