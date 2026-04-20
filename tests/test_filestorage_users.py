@@ -1,6 +1,7 @@
 from library_management_system.services.file_storage import FileStorage
 from library_management_system.services.user_factory import UserFactory
 
+
 def test_save_and_load_users(tmp_path):
     users_file = tmp_path / "users.csv"
     storage = FileStorage(users_file=str(users_file))
@@ -25,14 +26,6 @@ def test_save_and_load_users(tmp_path):
     assert u2.name == "Bob"
     assert u2.get_user_type() == "Teacher"
 
-
-def test_load_users_missing_file_returns_empty(tmp_path):
-    users_file = tmp_path / "missing_users.csv"
-    storage = FileStorage(users_file=str(users_file))
-
-    loaded = storage.load_users()
-
-    assert loaded == []
 
 def test_load_users_missing_file_returns_empty(tmp_path):
     users_file = tmp_path / "nonexistent_users.csv"

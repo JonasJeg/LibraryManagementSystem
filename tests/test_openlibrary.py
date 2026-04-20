@@ -1,5 +1,7 @@
 from unittest.mock import patch
+
 from library_management_system.services.openlibrary_client import OpenLibraryClient
+
 
 @patch("requests.get")
 def test_openlibrary_success(mock_get):
@@ -15,6 +17,7 @@ def test_openlibrary_success(mock_get):
 
     assert len(results) == 1
     assert results[0]["title"] == "Book"
+
 
 @patch("requests.get", side_effect=Exception("Network error"))
 def test_openlibrary_network_error_returns_empty_list(_):

@@ -1,6 +1,8 @@
 import csv
-from library_management_system.services.file_storage import FileStorage
+
 from library_management_system.models.book import Book
+from library_management_system.services.file_storage import FileStorage
+
 
 def test_save_and_load_books(tmp_path):
     books_file = tmp_path / "books.csv"
@@ -41,17 +43,4 @@ def test_load_books_missing_file_creates_empty(tmp_path):
 
     with open(books_file, newline="", encoding="utf-8") as f:
         header = next(csv.reader(f))
-        assert header == ["id", "title", "author", "year", "genre", "is_available"]
-
-def test_load_books_missing_file_creates_empty(tmp_path):
-    books_file = tmp_path / "nonexistent_books.csv"
-    storage = FileStorage(books_file=str(books_file))
-
-    loaded = storage.load_books()
-
-    assert loaded == []
-    assert books_file.exists()
-
-    with open(books_file, encoding="utf-8") as f:
-        header = f.readline().strip().split(",")
         assert header == ["id", "title", "author", "year", "genre", "is_available"]

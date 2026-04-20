@@ -1,7 +1,9 @@
 from datetime import datetime
+
 from library_management_system.models.book import Book
-from library_management_system.models.user_types import Student
 from library_management_system.models.borrow_record import BorrowRecord
+from library_management_system.models.user_types import Student
+
 
 def test_borrowrecord_initialization():
     user = Student(1, "Jonas")
@@ -14,6 +16,7 @@ def test_borrowrecord_initialization():
     assert r.book == book
     assert r.borrow_date == now
     assert r.return_date is None
+
 
 def test_borrowrecord_mark_returned():
     user = Student(1, "Jonas")

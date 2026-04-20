@@ -1,8 +1,10 @@
 from datetime import datetime
-from library_management_system.services.file_storage import FileStorage
+
 from library_management_system.models.book import Book
 from library_management_system.models.borrow_record import BorrowRecord
+from library_management_system.services.file_storage import FileStorage
 from library_management_system.services.user_factory import UserFactory
+
 
 def test_save_and_load_records(tmp_path):
     records_file = tmp_path / "records.csv"
@@ -40,14 +42,6 @@ def test_save_and_load_records(tmp_path):
     assert r2.record_id == 200
     assert r2.return_date == return_date
 
-
-def test_load_records_missing_file_returns_empty(tmp_path):
-    records_file = tmp_path / "missing_records.csv"
-    storage = FileStorage(records_file=str(records_file))
-
-    loaded = storage.load_records([], [])
-
-    assert loaded == []
 
 def test_load_records_missing_file_returns_empty(tmp_path):
     records_file = tmp_path / "nonexistent_records.csv"
