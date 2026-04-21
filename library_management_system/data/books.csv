@@ -1,0 +1,7 @@
+id,title,author,year,genre,is_available
+1,The Da Vinci Code,Dan Brown,2003,Imported,False
+2,Dune,Frank Herbert,1965,Imported,True
+3,Lord of the Flies,William Golding,1954,Imported,True
+4,The Lord of the Rings,J.R.R. Tolkien,1954,Imported,False
+5,The Hunger Games,Suzanne Collins,2008,Imported,False
+6,Charlotte's Web,E. B. White,1952,Imported,True
