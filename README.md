@@ -66,7 +66,7 @@ My goal for this project was learning more practical OOP implementations. This L
 * Click "Open in Terminal"
 * Paste this line into the terminal:
   ```sh
-  pytest -v
+  python -m pytest -v
   ```
 * You will see the test results shown after they complete
 
